@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { noWhiteSpaceValidator } from '../shared/validators/no-white-space.validator';
 
 @Component({
   selector: 'app-sign-in-rf',
@@ -14,10 +15,27 @@ export class SignInRfComponent implements OnInit {
   // });
 
   signInForm = this.fb.group({
-    username : "",
-    password : "",
+    username : [
+      "",
+      Validators.compose([
+        Validators.required,
+        Validators.minLength(6),
+        noWhiteSpaceValidator(),
+        Validators.pattern(/^[a-z]{6,32}$/i),
+      ])
+    ],
+    password: [
+      '',
+      Validators.compose([
+        Validators.required,
+        Validators.minLength(6),
+        Validators.pattern(/^(?=.*[!@#$%^&*]+)[a-z0-9!@#$%^&*]{6,32}$/),
+      ]),
+    ],
     rememberMe : false
   })
+
+  control = this.fb.control('',Validators.minLength(6 ))
   constructor(private readonly fb: FormBuilder) {}
 
   ngOnInit(): void {
