@@ -12,12 +12,15 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { FormsModule } from '@angular/forms';
 import { CalenderComponent } from './calender/calender.component';
+import { SignInRfComponent } from './sign-in-rf/sign-in-rf.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
-    CalenderComponent
+    CalenderComponent,
+    SignInRfComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { CalenderComponent } from './calender/calender.component';
     MatInputModule,
     MatFormFieldModule,
     MatCheckboxModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
