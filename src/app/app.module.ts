@@ -11,11 +11,13 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 
 import { FormsModule } from '@angular/forms';
+import { CalenderComponent } from './calender/calender.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignInComponent
+    SignInComponent,
+    CalenderComponent
   ],
   imports: [
     BrowserModule,
